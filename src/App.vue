@@ -1,6 +1,5 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+  <div class="main-wrap">
     <router-view></router-view>
   </div>
 </template>
@@ -12,12 +11,15 @@ export default {
 </script>
 
 <style>
-#app {
+*,body,div,ul,li,a,span,nav{
+  padding:0px;
+  margin:0px;
+}
+.main-wrap{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

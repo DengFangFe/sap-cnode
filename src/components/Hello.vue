@@ -1,32 +1,73 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <headerTitle v-bind:message="parentMsg"></headerTitle>
+    <listSection v-bind:message="topicMsg" ref="childMethod"></listSection>
+    <navBar v-on:listenToChildEvent="showMsgFromChild"></navBar>
+    <backTop></backTop>
   </div>
 </template>
 
 <script>
+import $ from 'webpack-zepto'
+import navBar from '../components/nav.vue'
+import headerTitle from '../components/header.vue'
+import listSection from '../components/list.vue'
+import backTop from '../components/backtop.vue'
+
 export default {
   name: 'hello',
+  components:{
+    navBar,
+    listSection,
+    headerTitle,
+    backTop,
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      childWords:'',
+      parentMsg:'',
+      topicMsg:'',
+      tab:'all',
     }
+  },
+  mounted:function(){
+     debugger;
+   
+  },
+  methods: {
+    showMsgFromChild:function(msg){
+      debugger;
+      this.parentMsg = this.childWords = this.getTitle(msg).title;
+      this.topicMsg = msg;
+       var topicMenu = this.topicMsg || this.tab;
+      this.$refs.childMethod.getTopics(topicMenu);
+    },
+    getTitle: function (val) {
+          var obj = {};
+          switch (val) {
+            case 'ask':
+              obj.title = "问答";
+              obj.idx = 1;
+              break;
+            case 'share':
+              obj.title = "分享";
+              obj.idx = 2;
+              break;
+            case 'job':
+              obj.title = "招聘";
+              obj.idx = 3;
+              break;
+            case 'good':
+              obj.title = "精华";
+              obj.idx = 4;
+              break;
+            default:
+              obj.title = "全部";
+              obj.idx = 0;
+              break;
+          }
+          return obj;
+      },
   }
 }
 </script>
