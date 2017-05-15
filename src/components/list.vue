@@ -12,7 +12,7 @@
 							<div class="topic-info">
 								<p>
 									<span class="topic-author">{{topic.author.loginname}}</span>
-									<span class="topic-total"><b>{{topic.reply_count}}</b>{{topic.visit_count}}</span>
+									<span class="topic-total"><b>{{topic.reply_count}}</b>/{{topic.visit_count}}</span>
 								</p>
 								<p>
 									<span class="topic-ctime">Post:{{topic.create_at | getFreeTime}}</span>
@@ -116,6 +116,7 @@
 	}
 </script>
 <style rel="stylesheet/scss" type="text/css" lang="scss" scoped="">
+    @import "../assets/css/common/_variable.scss";
 	.topic-body{
 		height:calc(100% - 160px);
 		height:-webkit-calc(100% - 160px);
@@ -178,8 +179,8 @@
 								}
 								.top-total{
 									color:#666666;
-									b {
-										color:#80bd01;
+									b{
+										color:$green;
 									}
 								}
 								.topc-ctime{

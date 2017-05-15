@@ -2,6 +2,7 @@
 	<header class="header">
 		<div class="title" v-if = "message.length > 0">{{message}}</div>
 		<div class="title" v-else >{{title}}</div>
+		<router-link to="/about"><i class="iconfont icon-shezhi"></i></router-link>
 	</header>
 </template>
 
@@ -39,6 +40,17 @@
 			text-align:center;
 			font-size:14px;
 			line-height:40px;
+		}
+		a{
+			display: inline-block;
+		    float: right;
+		    position: absolute;
+		    top: 0px;
+		    right: 10px;
+		    .icon-shezhi{
+		    	color:#80bd01;
+		    	opacity:.7;
+		    }
 		}
 	}
 </style>

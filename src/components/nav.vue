@@ -51,7 +51,7 @@
   }
 </script>
 <style rel="stylesheet/scss" type="text/css" lang="scss" scoped>
-    @import "../assets/css/variable.scss";
+    @import "../assets/css/common/_variable.scss";
 
     .footer {
       position:fixed;
@@ -74,7 +74,7 @@
             text-align:center;
             text-decoration:none;
          }
-         a.active {
+         a.router-link-exact-active {
             color:$green;
          }
 

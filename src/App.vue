@@ -10,7 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style rel="stylesheet/scss" type="text/css"  lang="scss">
+@import "./assets/css/base.scss";
 *,body,div,ul,li,a,span,nav{
   padding:0px;
   margin:0px;

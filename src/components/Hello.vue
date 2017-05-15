@@ -3,7 +3,9 @@
     <headerTitle v-bind:message="parentMsg"></headerTitle>
     <listSection v-bind:message="topicMsg" ref="childMethod"></listSection>
     <navBar v-on:listenToChildEvent="showMsgFromChild"></navBar>
+    <topic></topic>
     <backTop></backTop>
+    <preLoader></preLoader>
   </div>
 </template>
 
@@ -13,6 +15,8 @@ import navBar from '../components/nav.vue'
 import headerTitle from '../components/header.vue'
 import listSection from '../components/list.vue'
 import backTop from '../components/backtop.vue'
+import topic from '../components/topic.vue'
+import preLoader from '../components/preload.vue'
 
 export default {
   name: 'hello',
@@ -21,6 +25,8 @@ export default {
     listSection,
     headerTitle,
     backTop,
+    topic,
+    preLoader
   },
   data () {
     return {
